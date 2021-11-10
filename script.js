@@ -1,16 +1,13 @@
-let form = document.querySelector('button');
-form.addEventListener('click', myClick);
+let button = document.querySelector('button');
+button.addEventListener('click', getUserInfo);
 
-function myClick(evt) {
+function getUserInfo(event) {
     document.getElementById('div1').style.display = 'block';
-    evt.preventDefault();
-    let a = document.querySelector('#f1').value;
-    console.log(a);
-    let b = document.querySelector('#f2').value;
-    console.log(b);
-    let info = 'Username: ' + a + '</br>' + 'Password: ' + b;
-    document.querySelector('#div1').innerHTML = info;
-    localStorage.setItem('Username:', document.querySelector('#f1').value);
-    localStorage.setItem('Password:', document.querySelector('#f2').value);
+    event.preventDefault();
+    let login = document.querySelector('#f1').value;
+    let password = document.querySelector('#f2').value;
+    let userInfo = 'Username: ' + login + '</br>' + 'Password: ' + password;
+    document.querySelector('#div1').innerHTML = userInfo;
+    localStorage.setItem('Username:', login);
+    localStorage.setItem('Password:', password);
 }
-
